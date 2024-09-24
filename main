@@ -1,1 +1,40 @@
- 
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct SongNode {
+    string songName;
+    SongNode* next;
+    SongNode* prev;
+
+    SongNode(const string& name) : songName(name), next(nullptr), prev(nullptr) {}
+};
+
+class Playlist {
+    private:
+    SongNode* head;
+    SongNode* tail;
+    int numSong;
+
+    public:
+    Playlist(): head(nullptr), tail(nullptr), numSong(0) {}
+
+SongNode* getSongNode(const string song) {
+    SongNode*playing = head;
+    while (playing !=nullptr) {
+    if (playing->songName ==song){
+        return playing;
+    }
+    playing = playing->next;
+    }
+    return nullptr;
+}
+void addSong(const string addedSongName);
+}
+
+
+
+
+void addSong(const string addedSongName, const int songOrder);
+void deleteSong(const string deletedSongName);
+int getSongNum(const string searchedSongName);
