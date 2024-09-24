@@ -29,12 +29,28 @@ SongNode* getSongNode(const string song) {
     }
     return nullptr;
 }
-void addSong(const string addedSongName);
+void addSong(const string addedSongName){
+    SongNode* newSong = new SongNode(addedSongName);
+    if (tail == nullptr) {
+        head = newSong;
+        tail = newSong; 
+    } else {
+        tail->next = newSong;
+        newSong->prev = tail;
+        tail = newSong;
+    }
+    numSong++;
+}
+void addSong(const string addedSongName, const int songOrder){
+    if (songOrder < 1 || songOrder > numSong +1){
+        return;
+    }
+}
 }
 
 
 
 
-void addSong(const string addedSongName, const int songOrder);
+
 void deleteSong(const string deletedSongName);
 int getSongNum(const string searchedSongName);
